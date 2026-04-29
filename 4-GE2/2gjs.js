@@ -39,13 +39,21 @@ function displayMovies() {
     const movies = JSON.parse(localStorage.getItem("movies")) || [];
 
     listValue.innerHTML = "";
-    movies.forEach((movie) => {
+    movies.forEach((movie, index) => {
         const li = document.createElement("li");
         li.innerHTML = `
-            ${movie.title}, released on ${movie.yr} is a ${movie.genre} movie. Rating: ${"★".repeat(movie.rating)}
+            ${movie.title}, released on ${movie.yr} is a ${movie.genre} movie. Rating: <span class="starRating">${"★".repeat(movie.rating)}</span>
+            <button onClick="deleteMovie(${index})">Delete</button>
         `
         listValue.appendChild(li);
     })
+}
+
+function deleteMovie(index) {
+    const movies = JSON.parse(localStorage.getItem("movies")) || [];
+    movies.splice(index, 1);
+    localStorage.setItem("movies", JSON.stringify(movies));
+    displayMovies();
 }
 
 window.onload = displayMovies();

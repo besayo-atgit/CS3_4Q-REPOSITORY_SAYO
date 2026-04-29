@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta lang="en">
+        <meta name="author" content="Brentt SAYO">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            * {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+
+            .star {
+                color: black;
+                cursor: pointer;
+                transition: color 0.2s;
+            }
+
+            .star:hover,
+            .star.selected,
+            .starRating {
+                color: gold;
+            }
+
+            form {
+                margin-left: 5vw;
+                margin-top: 10vh;
+            }
+
+            h2 {
+                color: crimson;
+            }
+
+            label {
+                font-weight: bolder;
+                margin-right: 50px;
+            }
+
+            button {
+                padding: 10px;
+                color: crimson;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+            <h2>Add a Movie!</h2>
+            <h6>By Brentt Sayo</h6>
+            <label for="title">Title: </label>
+            <input type="text" id="title" name="title"><br><br>
+            <label for="yr">Year: </label>
+            <input type="number" id="yr" name="yr"><br><br>
+            <label for="genre">Genre: </label>
+            <select name="genre">
+                <option value="action">Action</option>
+                <option value="horror">Horror</option>
+                <option value="thriller">Thriller</option>
+                <option value="romcom">RomCom</option>
+                <option value="drama">Drama</option>
+                <option value="SciFi">SciFi</option>
+            </select><br><br>
+
+            <label>Rating: </label>
+            <span data-value="1" class="star">★</span>
+            <span data-value="2" class="star">★</span>
+            <span data-value="3" class="star">★</span>
+            <span data-value="4" class="star">★</span>
+            <span data-value="5" class="star">★</span>
+            <br><br>
+
+            <button onclick="addMovie()">Add Movie</button>
+            <ul id="movieList"></ul>
+        </form>
+    </body>
+    <script src="2gjs.js"></script>
+</html>
